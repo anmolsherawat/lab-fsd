@@ -13,6 +13,7 @@ jobs:
       - run: npm run lint
 
   build:
+    
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,6 +23,7 @@ jobs:
       - run: npm run build
 
   test:
+    needs: [lint,build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,6 +33,7 @@ jobs:
       - run: npm test
 
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
