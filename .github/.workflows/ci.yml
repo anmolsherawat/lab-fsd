@@ -13,9 +13,8 @@ jobs:
 
             - name: Setup Nodejs
               uses: actions/setup-node@v4
-              
-            - name: Run init
-              run: npm run init
+              with:
+                  node-version: '18'
 
             - name: Run build
               run: npm run build
